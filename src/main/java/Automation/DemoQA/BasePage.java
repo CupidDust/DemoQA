@@ -20,23 +20,21 @@ public class BasePage {
 	// Constructor to initialize WebDriver
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		this.softAssert = new SoftAssert();  // Initialize SoftAssert
+		this.softAssert = new SoftAssert(); // Initialize SoftAssert
 	}
-	
-	public void LogoCheck()
-	{
+
+	public void LogoCheck() {
 		driver.findElement(By.xpath("//img[@src='/images/Toolsqa.jpg']"));
 	}
-	
-	public void Validate_Instruction_Text()
-	{
-		Current_Instruction_Text = driver.findElement(By.xpath("//div[contains(text(), 'to start practice.')]")).getText();
+
+	public void Validate_Instruction_Text() {
+		Current_Instruction_Text = driver.findElement(By.xpath("//div[contains(text(), 'to start practice.')]"))
+				.getText();
 		softAssert.assertEquals(Current_Instruction_Text, "Please select an item from left to start practice.");
 		softAssert.assertAll();
 	}
-	
-	public void FooterCheck()
-	{
+
+	public void FooterCheck() {
 		CurrentFooterText = driver.findElement(By.xpath("//span[contains(text(), 'TOOLSQA.COM')]")).getText();
 		softAssert.assertEquals(CurrentFooterText, "© 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.");
 	}
@@ -114,9 +112,6 @@ public class BasePage {
 	public static void main(String[] args) throws InterruptedException {
 		// Initialize the driver from DriverSetup
 		WebDriver driver = DriverInvoke.initializeDriver();
-
-		// Create an instance of BasePage, passing the driver
-		BasePage page = new BasePage(driver);
 
 		// Navigate to a website
 		driver.get("https://demoqa.com/");
