@@ -27,6 +27,7 @@ public class BasePage {
 	{
 		driver.findElement(By.xpath("//img[@src='/images/Toolsqa.jpg']"));
 	}
+
 	
 	public void Validate_Instruction_Text()
 	{
