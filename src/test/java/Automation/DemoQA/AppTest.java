@@ -45,6 +45,7 @@ public class AppTest {
 	public void firstTC() {
 		homePage = new HomePage(driver);
 		homePage.LogoCheck();
+		homePage.clickOnElements();
 		homePage.softAssertResults();
 	}
 }

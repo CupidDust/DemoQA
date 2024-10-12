@@ -15,10 +15,23 @@ public class HomePage extends BasePage {
 
 	@FindBy(xpath = "//img[@src='/images/Toolsqa.jpg']")
 	private WebElement byImgToolsQA;
+	// only Xpath here
+	@FindBy(xpath = "//h5[contains(text(), 'Elements')]")
+	private WebElement byBtnElements;
 
 	public void LogoCheck() {
 		visibilityOf(byImgToolsQA);
 		softAssert.assertTrue(byImgToolsQA.isDisplayed(), "Tools QA image is not visible");
 	}
 
+	public ElementsPage clickOnElements() {
+		scrollToElement(byBtnElements);
+		softAssert.assertEquals(byBtnElements.getText(), "Elements", "Element text is mismatching");
+		byBtnElements.click();
+		System.out.print("Click on elements button");
+		return new ElementsPage(driver);
+
+	}
+
+	// Only methoids here
 }

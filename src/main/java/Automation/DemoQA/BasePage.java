@@ -14,7 +14,7 @@ public class BasePage {
 	protected SoftAssert softAssert;
    protected WebDriverWait wait; 
 
-	WebDriver driver; // Class-level WebDriver instance
+	protected WebDriver driver; // Class-level WebDriver instance
 
 	// Constructor to initialize WebDriver
 	public BasePage(WebDriver driver) {
