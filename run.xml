@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteName">
+
+	<!-- Define test block for a group of test classes -->
+	<test name="TestSet1" enabled="true">
+		<classes>
+			<class name="Automation.DemoQA.AppTest">
+				<methods>
+					<include name="firstTC"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>
