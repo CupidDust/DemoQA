@@ -2,11 +2,9 @@ package Automation.DemoQA.pages;
 
 import org.openqa.selenium.WebDriver;
 
-import Automation.DemoQA.BasePage;
+public class InteractionsPage extends HomePage {
 
-public class ElementsPage extends BasePage {
-
-	public ElementsPage(WebDriver driver) {
+	public InteractionsPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}

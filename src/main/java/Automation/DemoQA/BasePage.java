@@ -12,7 +12,7 @@ import org.testng.asserts.SoftAssert;
 
 public class BasePage {
 	protected SoftAssert softAssert;
-   protected WebDriverWait wait; 
+	protected WebDriverWait wait;
 
 	protected WebDriver driver; // Class-level WebDriver instance
 
@@ -38,14 +38,14 @@ public class BasePage {
 	public void softAssertResults() {
 		softAssert.assertAll();
 	}
-	
+
 	/*
 	 * 
 	 */
 	public WebElement visibilityOf(WebElement element) {
 		return wait.until(ExpectedConditions.visibilityOf(element));
 	}
-	
+
 	public static void main(String[] args) throws InterruptedException {
 	}
 }

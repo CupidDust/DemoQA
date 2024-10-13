@@ -15,11 +15,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * Unit test for simple App.
  */
 public class AppTest {
-	
+
 	private static WebDriver driver;
 
 	private HomePage homePage;
-	
+
 	@BeforeTest
 	public static WebDriver initializeDriver() {
 		WebDriverManager.chromedriver().setup();
@@ -36,16 +36,29 @@ public class AppTest {
 		}
 	}
 
-	@Test
-	public void shouldAnswerWithTrue() {
-		assertTrue(true);
-	}
+//	@Test
+//	public void shouldAnswerWithTrue() {
+//		assertTrue(true);
+//	}
 
 	@Test
 	public void firstTC() {
 		homePage = new HomePage(driver);
-		homePage.LogoCheck();
-		homePage.clickOnElements();
+		homePage.logoDisplayCheck();
+		homePage.logoClickCheck();
+		homePage.verifyElementsText();
+//		homePage.clickOnElements();
+		homePage.verifyFormsText();
+//		homePage.clickOnForms();
+		homePage.verifyAlertFrameWindowsText();
+//		homePage.clickOnAlertFrameWindows();
+		homePage.verifyWidgetsText();
+//		homePage.clickOnWidgets();
+		homePage.verifyInteractionsText();
+//		homePage.clickOnInteractions();
+		homePage.verifyBookStoreApplicationsText();
+//		homePage.clickOnBookStoreApplications();
+		homePage.verifyCopyRightText();
 		homePage.softAssertResults();
 	}
 }
