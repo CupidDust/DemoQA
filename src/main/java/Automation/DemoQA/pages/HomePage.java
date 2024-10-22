@@ -11,7 +11,9 @@ public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
+		
 	}
+	
 
 //	XPaths start below
 
@@ -55,10 +57,12 @@ public class HomePage extends BasePage {
 	}
 
 	// Method to verify Elements text
-	public void verifyElementsText() {
+	public String verifyElementsText() {
 		scrollToElement(byBtnElements);
-		softAssert.assertEquals(byBtnElements.getText(), "Elements", "Element text is mismatching");
+		elementsText = byBtnElements.getText();
+		softAssert.assertEquals(elementsText, "Elements", "Element text is mismatching");
 		System.out.println("Verified Elements button text.");
+		return elementsText;
 	}
 
 	// Method to click Elements button
@@ -66,7 +70,7 @@ public class HomePage extends BasePage {
 		verifyElementsText();
 		byBtnElements.click();
 		System.out.print("Click on Elements button");
-		return new ElementsPage(driver);
+		return new ElementsPage(driver, elementsText);
 
 	}
 

@@ -13,6 +13,7 @@ import org.testng.asserts.SoftAssert;
 public class BasePage {
 	protected SoftAssert softAssert;
 	protected WebDriverWait wait;
+	protected String elementsText;
 
 	protected WebDriver driver; // Class-level WebDriver instance
 

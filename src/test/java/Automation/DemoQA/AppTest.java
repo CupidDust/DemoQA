@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import Automation.DemoQA.pages.ElementsPage;
 import Automation.DemoQA.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,6 +20,7 @@ public class AppTest {
 	private static WebDriver driver;
 
 	private HomePage homePage;
+	private ElementsPage elementsPage;
 
 	@BeforeTest
 	public static WebDriver initializeDriver() {
@@ -48,17 +50,22 @@ public class AppTest {
 		homePage.logoClickCheck();
 		homePage.verifyElementsText();
 //		homePage.clickOnElements();
-		homePage.verifyFormsText();
-//		homePage.clickOnForms();
-		homePage.verifyAlertFrameWindowsText();
-//		homePage.clickOnAlertFrameWindows();
-		homePage.verifyWidgetsText();
-//		homePage.clickOnWidgets();
-		homePage.verifyInteractionsText();
-//		homePage.clickOnInteractions();
-		homePage.verifyBookStoreApplicationsText();
-//		homePage.clickOnBookStoreApplications();
-		homePage.verifyCopyRightText();
-		homePage.softAssertResults();
+		
+		// Click on the Elements button and navigate to ElementsPage
+				elementsPage = homePage.clickOnElements(); // Call this method to navigate to ElementsPage
+		
+//		homePage.verifyFormsText();
+////		homePage.clickOnForms();
+//		homePage.verifyAlertFrameWindowsText();
+////		homePage.clickOnAlertFrameWindows();
+//		homePage.verifyWidgetsText();
+////		homePage.clickOnWidgets();
+//		homePage.verifyInteractionsText();
+////		homePage.clickOnInteractions();
+//		homePage.verifyBookStoreApplicationsText();
+////		homePage.clickOnBookStoreApplications();
+//		homePage.verifyCopyRightText();
+//		homePage.softAssertResults();
+		
 	}
 }
