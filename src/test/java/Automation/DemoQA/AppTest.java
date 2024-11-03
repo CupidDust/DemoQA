@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Automation.DemoQA.pages.ElementsPage;
@@ -21,12 +22,14 @@ public class AppTest {
 
 	private HomePage homePage;
 	private ElementsPage elementsPage;
+	
+	@Parameters({"driverURL"})
 
 	@BeforeTest
-	public static WebDriver initializeDriver() {
+	public static WebDriver initializeDriver(String driverurl) {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.get("https://demoqa.com/");
+		driver.get(driverurl);
 		driver.manage().window().maximize();
 		return driver;
 	}
@@ -53,7 +56,7 @@ public class AppTest {
 		
 		// Click on the Elements button and navigate to ElementsPage
 				elementsPage = homePage.clickOnElements(); // Call this method to navigate to ElementsPage
-		
+				ElementsPage.TextBoxClickAndValidate();
 //		homePage.verifyFormsText();
 ////		homePage.clickOnForms();
 //		homePage.verifyAlertFrameWindowsText();
@@ -68,4 +71,5 @@ public class AppTest {
 //		homePage.softAssertResults();
 		
 	}
+
 }

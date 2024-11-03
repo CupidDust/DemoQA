@@ -4,6 +4,7 @@
 
 	<!-- Define test block for a group of test classes -->
 	<test name="TestSet1" enabled="true">
+		<parameter name="driverURL" value="https://demoqa.com/"></parameter>
 		<classes>
 			<class name="Automation.DemoQA.AppTest">
 				<methods>
