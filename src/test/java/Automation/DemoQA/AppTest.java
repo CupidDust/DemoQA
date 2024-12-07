@@ -2,6 +2,8 @@ package Automation.DemoQA;
 
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -47,7 +49,7 @@ public class AppTest {
 //	}
 
 	@Test
-	public void firstTC() {
+	public void firstTC() throws IOException {
 		homePage = new HomePage(driver);
 		homePage.logoDisplayCheck();
 		homePage.logoClickCheck();
