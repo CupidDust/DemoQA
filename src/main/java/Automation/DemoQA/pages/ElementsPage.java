@@ -43,6 +43,24 @@ public class ElementsPage extends BasePage {
 		@FindBy(id = "userEmail")
 		private static WebElement byEmailField;
 		
+		@FindBy(id = "currentAddress-label")
+		private static WebElement byCurrentAddressText;
+		
+		@FindBy(id = "currentAddress")
+		private static WebElement byCurrentAddressField;
+		
+		@FindBy(id = "permanentAddress-label")
+		private static WebElement byPermanentAddressText;
+		
+		@FindBy(id = "permanentAddress")
+		private static WebElement byPermanentAddressField;
+		
+		@FindBy(id = "submit")
+		private static WebElement bySubmitCTA;
+		
+		@FindBy(css = ".border.col-md-12.col-sm-12")
+		private static WebElement byOutputBox;
+
 		
 	public static void TextBoxClickAndValidate() throws IOException
 	{
@@ -50,10 +68,19 @@ public class ElementsPage extends BasePage {
 		String textBox = byTextBoxHeading.getText();
 		softAssert.assertEquals(textBox, "Text Box", "Middle of page Text Box text mismatch");
 		String fullNameText = byFullNameText.getText();
-		softAssert.assertEquals(fullNameText, "Full Name", "Full Name text is present");
-		
+		softAssert.assertEquals(fullNameText, "Full Name", "Full Name text is not present");
 		byFullNameField.sendKeys(loadFromProperties("fullName"));
 		byEmailField.sendKeys(loadFromProperties("email"));
+		String currentAddressText = byCurrentAddressText.getText();
+		softAssert.assertEquals(currentAddressText, "Current Address", "Current Address text is not present");
+		byCurrentAddressField.sendKeys(loadFromProperties("address"));
+		String PermanentAddressText = byPermanentAddressText.getText();
+		softAssert.assertEquals(PermanentAddressText, "Permanent Address", "Permanent Address text is not present");
+		byPermanentAddressField.sendKeys(loadFromProperties("permanentAddress"));
+		bySubmitCTA.click();
+		visibilityOf(byOutputBox);
+		
+		
 		
 		softAssertResults();
 		

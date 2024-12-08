@@ -15,7 +15,7 @@ import org.testng.asserts.SoftAssert;
 
 public class BasePage {
 	protected static SoftAssert softAssert;
-	protected WebDriverWait wait;
+	protected static WebDriverWait wait;
 	protected String elementsText;
 
 	protected WebDriver driver; // Class-level WebDriver instance
@@ -46,7 +46,7 @@ public class BasePage {
 	/*
 	 * 
 	 */
-	public WebElement visibilityOf(WebElement element) {
+	public static WebElement visibilityOf(WebElement element) {
 		return wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
