@@ -18,12 +18,12 @@ public class BasePage {
 	protected static WebDriverWait wait;
 	protected String elementsText;
 
-	protected WebDriver driver; // Class-level WebDriver instance
+	protected static WebDriver driver; // Class-level WebDriver instance
 	static String projectPath = System.getProperty("user.dir");
 	// Constructor to initialize WebDriver
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		this.softAssert = new SoftAssert(); // Initialize SoftAssert
+		
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
@@ -31,7 +31,7 @@ public class BasePage {
 	/*
 	 * Method to scroll to an element
 	 */
-	public void scrollToElement(WebElement element) {
+	public static void scrollToElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
@@ -53,7 +53,7 @@ public class BasePage {
 	public static Properties configProperties() throws IOException
 	{
 		Properties properties = new Properties();
-		FileInputStream fis = new FileInputStream(projectPath + "\\src\\main\\java\\Automation\\DemoQA\\config.properties");
+		FileInputStream fis = new FileInputStream(projectPath + "\\src\\main\\resources\\config.properties");
 		properties.load(fis);
 		fis.close();
 		return properties;

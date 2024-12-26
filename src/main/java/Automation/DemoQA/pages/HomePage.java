@@ -3,6 +3,7 @@ package Automation.DemoQA.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.asserts.SoftAssert;
 
 import Automation.DemoQA.BasePage;
 
@@ -10,6 +11,8 @@ public class HomePage extends BasePage {
 
 	public HomePage(WebDriver driver) {
 		super(driver);
+		this.softAssert = new SoftAssert(); // Initialize SoftAssert
+		System.out.print(softAssert.hashCode());
 		// TODO Auto-generated constructor stub
 		
 	}

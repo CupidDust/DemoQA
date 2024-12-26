@@ -24,8 +24,8 @@ public class AppTest {
 
 	private HomePage homePage;
 	private ElementsPage elementsPage;
-	
-	@Parameters({"driverURL"})
+
+	@Parameters({ "driverURL" })
 
 	@BeforeTest
 	public static WebDriver initializeDriver(String driverurl) {
@@ -36,12 +36,12 @@ public class AppTest {
 		return driver;
 	}
 
-	@AfterTest
-	public static void closeDriver() {
-		if (driver != null) {
-			driver.quit();
-		}
-	}
+//	@AfterTest
+//	public static void closeDriver() {
+//		if (driver != null) {
+//			driver.quit();
+//		}
+//	}
 
 //	@Test
 //	public void shouldAnswerWithTrue() {
@@ -54,11 +54,10 @@ public class AppTest {
 		homePage.logoDisplayCheck();
 		homePage.logoClickCheck();
 		homePage.verifyElementsText();
-//		homePage.clickOnElements();
-		
-		// Click on the Elements button and navigate to ElementsPage
-				elementsPage = homePage.clickOnElements(); // Call this method to navigate to ElementsPage
-				ElementsPage.TextBoxClickAndValidate();
+
+		elementsPage = homePage.clickOnElements(); // Call this method to navigate to ElementsPage
+		ElementsPage.TextBoxClickAndValidate();
+		ElementsPage.OutputValidate();
 //		homePage.verifyFormsText();
 ////		homePage.clickOnForms();
 //		homePage.verifyAlertFrameWindowsText();
@@ -70,8 +69,8 @@ public class AppTest {
 //		homePage.verifyBookStoreApplicationsText();
 ////		homePage.clickOnBookStoreApplications();
 //		homePage.verifyCopyRightText();
-//		homePage.softAssertResults();
-		
+		homePage.softAssertResults();
+
 	}
 
 }
